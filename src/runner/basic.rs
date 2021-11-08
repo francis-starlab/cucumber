@@ -938,6 +938,7 @@ where
                         return Err((e, None, None));
                     }
                     Err(e) => {
+                        dbg!(&e);
                         let e = event::StepError::Panic(e.into());
                         return Err((e, None, None));
                     }
@@ -950,6 +951,7 @@ where
             {
                 Ok(()) => Ok((Some(captures), Some(world))),
                 Err(e) => {
+                    dbg!(&e);
                     let e = event::StepError::Panic(e.into());
                     Err((e, Some(captures), Some(world)))
                 }

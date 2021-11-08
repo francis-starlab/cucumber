@@ -22,6 +22,7 @@ use std::{
         Arc,
     },
 };
+use std::fmt::Debug;
 
 use futures::{
     channel::mpsc,
@@ -952,6 +953,7 @@ where
                 Ok(()) => Ok((Some(captures), Some(world))),
                 Err(e) => {
                     dbg!(&e);
+                    dbg!(&e.downcast_ref::<dyn Debug>());
                     let e = event::StepError::Panic(e.into());
                     Err((e, Some(captures), Some(world)))
                 }

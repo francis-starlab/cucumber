@@ -514,6 +514,7 @@ async fn execute<W, Before, After>(
 
     loop {
         let runnable = features.get(max_concurrent_scenarios).await;
+        dbg!(runnable.len());
         if runnable.is_empty() {
             if features.is_finished() {
                 break;

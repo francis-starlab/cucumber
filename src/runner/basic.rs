@@ -520,7 +520,7 @@ async fn execute<W, Before, After>(
             }
             continue;
         }
-
+        dbg!(runnable.len());
         let started = executor.start_scenarios(&runnable);
         executor.send_all(started);
 
